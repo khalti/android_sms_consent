@@ -6,8 +6,8 @@ issue_tracker: https://github.com/khalti/android_sms_consent/issues
 repository: https://github.com/khalti/android_sms_consent
 
 environment:
-  sdk: ">=2.15.0 <3.0.0"
-  flutter: ">=2.5.0"
+  sdk: '>=3.4.0 <4.0.0'
+  flutter: '>=3.22.0'
 
 dependencies:
   flutter:
@@ -16,7 +16,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^1.0.0
+  flutter_lints: ^4.0.0
 
 flutter:
   plugin:
