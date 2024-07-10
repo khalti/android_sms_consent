@@ -8,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
             return Center(
               child: Text(
                 'SMS: $_sms',
-                style: Theme.of(context).textTheme.subtitle1,
+                style: Theme.of(context).textTheme.bodySmall,
               ),
             );
           },

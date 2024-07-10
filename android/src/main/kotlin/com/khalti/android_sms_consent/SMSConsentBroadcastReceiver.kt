@@ -8,6 +8,7 @@ import com.google.android.gms.auth.api.phone.SmsRetriever
 import com.google.android.gms.common.api.CommonStatusCodes
 import com.google.android.gms.common.api.Status
 import io.flutter.plugin.common.MethodChannel
+import android.os.Build
 
 class SMSConsentBroadcastReceiver(private val activity: Activity, private val channel: MethodChannel) : BroadcastReceiver() {
     companion object {
@@ -42,7 +43,11 @@ class SMSConsentBroadcastReceiver(private val activity: Activity, private val ch
         SmsRetriever.getClient(activity).startSmsUserConsent(phone)
 
         val intentFilter = IntentFilter(SmsRetriever.SMS_RETRIEVED_ACTION)
-        activity.registerReceiver(this, intentFilter, SmsRetriever.SEND_PERMISSION, null)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            activity?.registerReceiver(this, intentFilter, SmsRetriever.SEND_PERMISSION, null, Context.RECEIVER_EXPORTED)
+        }else{
+            activity?.registerReceiver(this, intentFilter, SmsRetriever.SEND_PERMISSION, null)
+        }
     }
 
     fun stop() {
