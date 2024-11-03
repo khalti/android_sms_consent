@@ -25,6 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
+    namespace "com.khalti.android_sms_consent"
     compileSdkVersion 34
 
     compileOptions {
